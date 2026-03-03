@@ -6,7 +6,7 @@ BUILD_TARGETS := $(patsubst $(PAGES_DIR)/%.html,$(BUILDDIR)/%.html,$(HTML_SOURCE
 
 $(BUILDDIR): $(SRCDIR)/CNAME $(SRCDIR)/**/*.html
 	mkdir -p ./build
-	cp src/CNAME $@
+	cp CNAME $@
 
 $(BUILDDIR)/%.html: $(SRCDIR)/pages/%.html | $(BUILDDIR)
 	bin/render $< > $@
