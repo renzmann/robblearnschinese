@@ -11,7 +11,7 @@
   --color-accent-hover: #1d4ed8;
 
   /* TODO: need JA, ZH fonts */
-  --font-body:   'Georgia', 'Times New Roman', serif;
+  --font-body:   'Noto Sans', sans-serif;
   --font-ui:     'system-ui', sans-serif;
 
   --width-content: 680px;
