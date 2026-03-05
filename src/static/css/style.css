@@ -42,6 +42,12 @@ body {
   flex-direction: column;
 }
 
+footer {
+  color: var(--color-muted);
+  text-align: right;
+  margin-right: var(--space-sm);
+}
+
 img, video {
   max-width: 100%;
   display: block;
