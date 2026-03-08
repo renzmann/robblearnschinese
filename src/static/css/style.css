@@ -1,3 +1,7 @@
+/* ----------------------------------------------------------------------------
+    Root Styling
+   ------------------------------------------------------------------------- */
+
 :root {
   --color-bg:        #fafaf8;
   --color-surface:   #ffffff;
@@ -6,6 +10,8 @@
   --color-border:    #e5e7eb;
   --color-accent:    #2563eb;
   --color-accent-hover: #1d4ed8;
+  --color-orange: #e8541a;
+  --color-darkorange: #b34700;
 
   --font-body:   'Noto Sans', sans-serif;
   --font-ui:     'Noto Sans', sans-serif;
@@ -69,25 +75,6 @@ main {
   padding: 0 var(--space-xl) 0 var(--space-xl);
 }
 
-nav {
-  background-color: var(--color-surface);
-  border-bottom: 1px solid var(--color-border);
-  font-size: 0.9rem;
-}
-
-nav ul {
-  display: flex;
-  align-items: center;
-  list-style-type: none;
-  justify-content: space-between;
-  padding-left: var(--space-lg);
-  padding-right: var(--space-lg);
-}
-
-nav ul a:hover {
-  text-decoration: none;
-}
-
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-ui);
   font-weight: 700;
@@ -143,4 +130,83 @@ hr {
   border: none;
   border-top: 1px solid var(--color-border);
   margin-block: var(--space-xl);
+}
+
+/* ----------------------------------------------------------------------------
+    Header
+   ------------------------------------------------------------------------- */
+.site-header {
+  background: var(--color-bg);
+  border-bottom: 2px solid var(--color-border);
+  padding: 0 var(--space-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+  height: 150px;
+}
+.site-header nav {
+  margin-left: auto;
+  display: flex;
+  gap: var(--space-lg);
+  font-family: var(--font-ui);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  font-size: 15px;
+  white-space: nowrap;
+}
+.site-header nav a {
+  text-decoration: none;
+  color: var(--color-text);
+}
+.site-header nav a:hover {
+  color: var(--color-orange);
+}
+
+
+/* ----------------------------------------------------------------------------
+    Progress Bar
+   ------------------------------------------------------------------------- */
+.track-wrap {
+  flex: 1;
+  padding: 28px 0 22px;
+}
+.track {
+  position: relative;
+  height: 12px;
+  background: var(--color-border);
+}
+.fill {
+  height: 100%;
+  width: calc(250 / 3200 * 100%);
+  background: var(--color-orange);
+}
+.marker {
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  text-align: center;
+}
+.marker__tick {
+  width: 2px;
+  height: 12px;
+  background: var(--color-darkorange);
+  margin: 0 auto;
+}
+.marker__label {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 10px;
+  font-family: var(--font-ui);
+  color: var(--color-muted);
+}
+.marker--above .marker__tick {
+  background: var(--color-accent);
+}
+.marker--above .marker__label {
+  top: auto;
+  bottom: 16px;
+  color: var(--color-muted);
 }
