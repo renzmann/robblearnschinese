@@ -221,4 +221,9 @@ hr {
    ------------------------------------------------------------------------- */
 .date-header {
   color: var(--color-muted);
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
 }
+
+.date-header .hours::after { content: ' hours'; }
