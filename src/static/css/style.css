@@ -172,47 +172,70 @@ hr {
    ------------------------------------------------------------------------- */
 .track-wrap {
   flex: 1;
-  padding: 28px 0 22px;
+  padding: 90px 0 50px;
 }
+
 .track {
   position: relative;
   height: 12px;
   background: var(--color-border);
 }
+
 .fill {
   height: 100%;
   width: calc(var(--hours) / 3200 * 100%);
   background: var(--color-orange);
 }
+
 .marker {
   position: absolute;
   top: 0;
-  transform: translateX(-50%);
-  text-align: center;
+  height: var(--tick, 0px);        /* marker is as tall as its tick */
+  transform: translateX(-50%) translateY(calc(-1 * var(--tick, 0px)));
+  /* shift upward so marker bottom sits flush with track top */
 }
+
 .marker__tick {
-  width: 2px;
-  height: 12px;
-  background: var(--color-darkorange);
-  margin: 0 auto;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: var(--tick, 0px);
+  background: var(--color-border);
 }
+
 .marker__label {
   position: absolute;
-  top: 16px;
+  bottom: 100%;                    /* above the marker = above the tick */
   left: 50%;
   transform: translateX(-50%);
   white-space: nowrap;
   font-size: 10px;
   font-family: var(--font-ui);
   color: var(--color-muted);
+  text-align: center;
+  padding-bottom: 3px;
 }
-.marker--above .marker__tick {
-  background: var(--color-accent);
+
+/* Below-bar markers */
+.marker--below {
+  height: 0;
+  top: 12px;                       /* below the track */
+  transform: translateX(-50%);     /* no upward shift */
 }
-.marker--above .marker__label {
-  top: auto;
-  bottom: 16px;
+
+.marker__label--below {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 10px;
+  font-family: var(--font-ui);
   color: var(--color-muted);
+  text-align: center;
+  line-height: 1.4;
 }
 
 
