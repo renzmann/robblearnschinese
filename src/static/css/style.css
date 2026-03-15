@@ -1,10 +1,10 @@
 :root {
-/* ----------------------------------------------------------------------------
+  /* ----------------------------------------------------------------------------
     Manual site data
    ------------------------------------------------------------------------- */
-  --hours: 29;
+  --hours: 37;
 
-/* ----------------------------------------------------------------------------
+  /* ----------------------------------------------------------------------------
     Root styling
    ------------------------------------------------------------------------- */
   --color-bg:        #fafaf8;
@@ -75,8 +75,14 @@ a:hover {
 
 main {
   flex: 1;
-  padding-block: var(--space-xl);
-  padding: 0 var(--space-xl) 0 var(--space-xl);
+  max-width: 1050px;
+  margin-inline: auto;
+  padding: var(--space-xl);
+}
+
+ul, ol {
+  padding-left: var(--space-lg);
+  margin-bottom: var(--space-md);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -183,7 +189,7 @@ hr {
 
 .fill {
   height: 100%;
-  width: calc(var(--hours) / 3200 * 100%);
+  width: calc(var(--hours) / 3000 * 100%);
   background: var(--color-orange);
 }
 
@@ -250,3 +256,24 @@ hr {
 }
 
 .date-header .hours::after { content: ' hours'; }
+
+/* ----------------------------------------------------------------------------
+    Dark theme
+   ------------------------------------------------------------------------- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg:           #2f2f2f;
+    --color-surface:      #383838;
+    --color-text:         #e0ddd8;
+    --color-muted:        #9a9690;
+    --color-border:       #444440;
+    --color-accent:       #7aa2d4;
+    --color-accent-hover: #9ab8e0;
+    --color-orange:       #d45f30;
+    --color-darkorange:   #b34a22;
+  }
+
+  pre {
+    background: #272725;
+  }
+}
