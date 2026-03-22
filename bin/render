@@ -107,8 +107,10 @@ END {
 
   # Expand includes in layout first (partials can themselves contain {{title}} etc.)
   layout = expand_includes(layout)
-
   out = substitute_vars(layout, vars)
+
+  # Second pass for articles that include partials
+  out = expand_includes(out)
 
   printf "%s", out
 }
