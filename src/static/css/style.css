@@ -1,7 +1,7 @@
 /* ----------------------------------------------------------------------------
    Hours
    ------------------------------------------------------------------------- */
-:root { --hours: 44; }
+:root { --hours: 50; }
 body.page-japanese { --hours: 1450; }
 
 
@@ -281,4 +281,48 @@ hr {
   pre {
     background: #272725;
   }
+
+  td {
+    color: var(--color-surface);
+  }
+}
+
+
+/* ----------------------------------------------------------------------------
+    Roadmap table styling
+   ------------------------------------------------------------------------- */
+table {
+  border-collapse: collapse;
+  margin-bottom: 30px;
+}
+th, td {
+  border: 1px solid #ccc;
+  padding: 4px 8px;
+  text-align: center;
+}
+th {
+  font-weight: bold;
+}
+caption {
+  font-weight: bold;
+  margin-bottom: 6px;
+  font-size: 11pt;
+}
+td:first-child, th:first-child {
+  text-align: left;
+}
+.row-3  {
+  background-color: #d9ead3;
+}
+.row-4  {
+  background-color: #c9daf8;
+}
+.row-5  {
+  background-color: #d9d2e9;
+}
+.row-6  {
+  background-color: #fff2cc;
+}
+.row-7  {
+  background-color: #f4cccc;
 }
