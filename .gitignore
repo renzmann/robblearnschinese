@@ -1,6 +1,7 @@
 build/*
 resources/*
 __pycache__/
+.claude/settings.local.json
 *#
 *~
 *.\#*
