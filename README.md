@@ -1,7 +1,6 @@
 # Robb Learns Chinese
 
-Source for [robblearnschinese.com](https://robblearnschinese.com) — a journal
-of learning Mandarin (and Japanese) through comprehensible input.
+Source for [robblearnschinese.com](https://robblearnschinese.com)
 
 ## Building
 
