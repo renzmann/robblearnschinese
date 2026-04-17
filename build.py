@@ -34,7 +34,7 @@ def parse_front_matter(path: Path) -> FrontMatter:
             key, _, val = stripped.partition(":")
             vars_[key.strip()] = val.strip()
     body = "\n".join(lines[body_start:])
-    return FrontMatter(vars=vars_, body=body, date=path.name)
+    return FrontMatter(vars=vars_, body=body, date=path.stem)
 
 
 def slurp(path: Path) -> str:
@@ -96,7 +96,7 @@ def assemble_posts(dirname: str) -> str:
     for pf in post_files:
         front_matter = parse_front_matter(pf)
         html = POST_TEMPLATE.format(
-            date=front_matter.vars.get("date", ""),
+            date=front_matter.date,
             hours=front_matter.vars.get("hours", ""),
             title=front_matter.vars.get("title", ""),
             body=front_matter.body,
