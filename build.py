@@ -45,7 +45,7 @@ def slurp(path: Path) -> str:
     return text
 
 
-def expand_includes(text: str, partials_dir: Path):
+def expand_includes(text: str, partials_dir: Path) -> str:
     """Expand {{> filename.html}} directives, reading from partials_dir."""
     def replace_include(m: re.Match) -> str:
         before, filename, after = m.group(1), m.group(2), m.group(3)
@@ -59,7 +59,7 @@ def expand_includes(text: str, partials_dir: Path):
     )
 
 
-def substitute_vars(text: str, vars_: dict[str, str]):
+def substitute_vars(text: str, vars_: dict[str, str]) -> str:
     """Replace {{key}} with value from vars. Content first, then others."""
     # Content first (may contain other {{var}} patterns that shouldn't be touched
     # until layout expansion is done)
@@ -106,7 +106,7 @@ def assemble_posts(dirname: str) -> str:
     return "\n\n".join(parts)
 
 
-def render_page(page_path):
+def render_page(page_path: Path) -> str:
     """Render a single page file to final HTML."""
     front_matter = parse_front_matter(page_path)
     vars_, body = front_matter.vars, front_matter.body
@@ -144,8 +144,8 @@ def main():
         shutil.copy2(cname, BUILD / "CNAME")
 
     for page in sorted(SRC.glob("pages/*.html")):
-        out = render_page(page)
         dest = BUILD / page.name
+        out = render_page(page)
         dest.write_text(out, encoding="utf-8", newline="\n")
 
     static_src = SRC / "static"
